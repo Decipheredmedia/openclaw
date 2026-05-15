@@ -1,0 +1,23 @@
+[Unit]
+Description=OpenClaw Automation System (Scheduler + Payment Server + Telegram Bot)
+After=network-online.target openclaw-gateway.service
+Wants=network-online.target openclaw-gateway.service
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/openclaw-automation
+ExecStart=/usr/bin/python3 /opt/openclaw-automation/main.py --start
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=openclaw-automation
+# Increase open file limit for concurrent connections
+LimitNOFILE=65536
+# Kill child processes (payment server) on stop
+KillMode=control-group
+TimeoutStopSec=30
+
+[Install]
+WantedBy=multi-user.target
