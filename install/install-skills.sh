@@ -62,7 +62,7 @@ EOF
 done
 
 if [ "$installed" -eq 0 ]; then
-  echo "No category markdown files were found in ${SOURCE_DIR}"
+  echo "No category markdown files were found in ${SOURCE_DIR}. Verify that the awesome-openclaw-skills checkout exists and still exposes categories/*.md."
   exit 1
 fi
 

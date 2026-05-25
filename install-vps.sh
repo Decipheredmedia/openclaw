@@ -114,9 +114,9 @@ existing_venice_key="$(read_env_value "$ENV_PATH" "OPENAI_API_KEY")"
 existing_telegram_token="$(read_env_value "$ENV_PATH" "TELEGRAM_BOT_TOKEN")"
 existing_gateway_token="$(read_env_value "$ENV_PATH" "OPENCLAW_GATEWAY_TOKEN")"
 
-read -rsp "Enter your Venice AI API key${existing_venice_key:+ [press Enter to keep existing]}: " venice_api_key_input
+read -rsp "Enter your Venice AI API key (press Enter to keep the current value if one is already configured): " venice_api_key_input
 echo
-read -rsp "Enter your Telegram bot token${existing_telegram_token:+ [press Enter to keep existing]}: " telegram_bot_token_input
+read -rsp "Enter your Telegram bot token (press Enter to keep the current value if one is already configured): " telegram_bot_token_input
 echo
 
 VENICE_API_KEY="${venice_api_key_input:-$existing_venice_key}"

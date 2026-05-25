@@ -7,6 +7,7 @@ import { describe, expect, it } from "vitest";
 import { validateConfigObjectWithPlugins } from "../src/config/validation.js";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const VENICE_API_BASE = "https://api.venice.ai/v1";
 
 type TemplateConfig = {
   gateway: {
@@ -69,7 +70,7 @@ describe("VPS install assets", () => {
     expect(parsed.gateway.bind).toBe("lan");
     expect(parsed.gateway.port).toBe(18789);
     expect(parsed.channels.telegram.enabled).toBe(true);
-    expect(parsed.models.providers["venice-openai"].baseUrl).toBe("https://api.venice.ai/v1");
+    expect(parsed.models.providers["venice-openai"].baseUrl).toBe(VENICE_API_BASE);
     expect(parsed.skills.load.extraDirs).toEqual(["/root/.openclaw/skills"]);
     expect(parsed.skills.entries["ai-and-llms"].enabled).toBe(true);
     expect(parsed.skills.entries["web-and-frontend-development"].enabled).toBe(true);
