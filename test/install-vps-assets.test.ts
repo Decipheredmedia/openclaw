@@ -45,15 +45,10 @@ function readRepoFile(relativePath: string): string {
 
 describe("VPS install assets", () => {
   it("ships shell installers with valid bash syntax", () => {
-    execFileSync(
-      "bash",
-      [
-        "-n",
-        path.join(repoRoot, "install-vps.sh"),
-        path.join(repoRoot, "install", "install-skills.sh"),
-      ],
-      { stdio: "pipe" },
-    );
+    execFileSync("bash", ["-n", path.join(repoRoot, "install-vps.sh")], { stdio: "pipe" });
+    execFileSync("bash", ["-n", path.join(repoRoot, "install", "install-skills.sh")], {
+      stdio: "pipe",
+    });
   });
 
   it("provides a valid OpenClaw config template for the Venice VPS flow", () => {
