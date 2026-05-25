@@ -20,6 +20,9 @@ for source_path in "$SOURCE_DIR"/*.md; do
   reference_file="${skill_dir}/REFERENCE.md"
   manifest_file="${TARGET_DIR}/${skill_name}.json"
   skill_title="$(sed -n '1s/^#\s*//p' "$source_path")"
+  if [ -z "$skill_title" ]; then
+    skill_title="$skill_name"
+  fi
 
   mkdir -p "$skill_dir"
   cp "$source_path" "$reference_file"
@@ -30,7 +33,7 @@ name: ${skill_name}
 description: Browse the ${skill_name//-/ } catalog imported from awesome-openclaw-skills and choose relevant community skills or references for the user's request.
 ---
 
-# ${skill_title:-$skill_name}
+# ${skill_title}
 
 This managed skill mirrors the \`${skill_name}\` category from \`awesome-openclaw-skills\`.
 

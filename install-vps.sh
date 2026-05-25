@@ -55,7 +55,7 @@ ensure_git_checkout() {
     exit 1
   fi
 
-  git clone --branch main "$repo_url" "$target_dir"
+  git clone --branch main --depth 1 "$repo_url" "$target_dir"
 }
 
 generate_gateway_token() {

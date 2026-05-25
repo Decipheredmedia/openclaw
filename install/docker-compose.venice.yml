@@ -18,7 +18,7 @@ services:
       OPENCLAW_GATEWAY_PORT: "18789"
       OPENCLAW_BRIDGE_PORT: "18790"
     volumes:
-      - ${HOME}/.openclaw:/home/node/.openclaw
+      - /root/.openclaw:/home/node/.openclaw
     command:
       [
         "node",
