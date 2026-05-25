@@ -4,6 +4,7 @@
       workspace: "/root/.openclaw/workspace",
       skipBootstrap: true,
       model: {
+        // Model refs use the format provider-id/model-id.
         // Other Venice AI models you can switch to:
         // venice-openai/llama-3.3-70b
         // venice-openai/mistral-31-24b

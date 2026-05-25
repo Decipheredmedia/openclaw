@@ -59,6 +59,7 @@ ensure_git_checkout() {
 }
 
 generate_gateway_token() {
+  # 24 random bytes = 192 bits of entropy for the shared gateway token.
   node -e "process.stdout.write(require('node:crypto').randomBytes(24).toString('hex'))"
 }
 

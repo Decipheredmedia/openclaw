@@ -71,6 +71,13 @@ describe("VPS install assets", () => {
     expect(parsed.gateway.port).toBe(18789);
     expect(parsed.channels.telegram.enabled).toBe(true);
     expect(parsed.models.providers["venice-openai"].baseUrl).toBe(VENICE_API_BASE);
+    expect(parsed.models.providers["venice-openai"].api).toBe("openai-completions");
+    expect(parsed.models.providers["venice-openai"].auth).toBe("api-key");
+    expect(parsed.models.providers["venice-openai"].apiKey).toEqual({
+      source: "env",
+      provider: "default",
+      id: "OPENAI_API_KEY",
+    });
     expect(parsed.skills.load.extraDirs).toEqual(["/root/.openclaw/skills"]);
     expect(parsed.skills.entries["ai-and-llms"].enabled).toBe(true);
     expect(parsed.skills.entries["web-and-frontend-development"].enabled).toBe(true);

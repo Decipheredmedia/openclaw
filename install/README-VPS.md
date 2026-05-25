@@ -19,6 +19,8 @@ This guide provisions OpenClaw on Ubuntu 20.04 with:
 curl -fsSL https://raw.githubusercontent.com/Decipheredmedia/openclaw/main/install-vps.sh | bash
 ```
 
+If you prefer to inspect before running, download the script first and review it locally before executing it with `bash install-vps.sh`.
+
 The installer will:
 
 1. install Node.js 22, pnpm, Docker, and Docker Compose

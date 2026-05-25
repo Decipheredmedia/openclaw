@@ -19,7 +19,7 @@ for source_path in "$SOURCE_DIR"/*.md; do
   skill_file="${skill_dir}/SKILL.md"
   reference_file="${skill_dir}/REFERENCE.md"
   manifest_file="${TARGET_DIR}/${skill_name}.json"
-  skill_title="$(sed -n '1s/^#\s*//p' "$source_path")"
+  skill_title="$(sed -n '1s/^#\+\s*//p' "$source_path")"
   if [ -z "$skill_title" ]; then
     skill_title="$skill_name"
   fi
