@@ -1,0 +1,65 @@
+{
+  "agents": {
+    "defaults": {
+      "workspace": "/root/.openclaw/workspace",
+      "models": {
+        "openai/venice-uncensored-1-2": {
+          "alias": "Venice"
+        },
+        "openai/llama-3.3-70b": {
+          "alias": "Llama"
+        }
+      },
+      "model": {
+        "primary": "openai/venice-uncensored-1-2",
+        "fallbacks": ["openai/llama-3.3-70b"]
+      }
+    }
+  },
+  "models": {
+    "providers": {
+      "openai": {
+        "models": [
+          { "id": "venice-uncensored-1-2" },
+          { "id": "llama-3.3-70b" }
+        ]
+      }
+    }
+  },
+  "gateway": {
+    "mode": "local"
+  },
+  "meta": {
+    "lastTouchedVersion": "2026.5.12",
+    "lastTouchedAt": "2026-05-25T16:00:00.000Z"
+  },
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "groups": {
+        "*": {
+          "requireMention": true
+        }
+      },
+      "botToken": "${TELEGRAM_BOT_TOKEN}"
+    }
+  },
+  "commands": {
+    "ownerAllowFrom": ["${OPENCLAW_OWNER_TELEGRAM_ID}"]
+  },
+  "plugins": {
+    "entries": {
+      "openai": {
+        "enabled": true
+      }
+    }
+  },
+  "auth": {
+    "profiles": {
+      "openai:default": {
+        "provider": "openai",
+        "mode": "api_key"
+      }
+    }
+  }
+}
