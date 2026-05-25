@@ -20,8 +20,8 @@
     "providers": {
       "openai": {
         "models": [
-          { "id": "venice-uncensored-1-2" },
-          { "id": "llama-3.3-70b" }
+          { "id": "venice-uncensored-1-2", "name": "Venice Uncensored 1.2" },
+          { "id": "llama-3.3-70b", "name": "Llama 3.3 70B" }
         ]
       }
     }
