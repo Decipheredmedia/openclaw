@@ -1,0 +1,19 @@
+[Unit]
+Description=OpenClaw Gateway
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/openclaw
+EnvironmentFile=/root/.openclaw/.env
+ExecStart=/usr/bin/node /opt/openclaw/openclaw.mjs gateway --bind lan --port 18789
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=openclaw-gateway
+
+[Install]
+WantedBy=multi-user.target
